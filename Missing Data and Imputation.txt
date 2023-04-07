@@ -1,0 +1,56 @@
+Conclusion: when to use each missing data imputation method
+Which missing data imputation method should I use and when?
+
+
+
+Different methods make different assumptions and have different advantages and disadvantages. Visit the previous lecture, "Overview of Missing Value Imputation Methods," for more details on this.
+
+
+
+As a guideline, I would say:
+
+
+
+If missing values are present in less than 5% of the observations,
+
+replace with mean/median or random sample (numerical)
+
+replace with the most frequent category or random sample (categorical)
+
+
+
+If missing values are present in more than 5% of the observations,
+
+do mean/median imputation and add a binary variable to capture NA (numerical),
+
+add a "Missing" label in categorical variables (categorical)
+
+The key is to investigate whether the missing data has predictive value. If they do, it is better to try to differentiate them from the remaining observations. If they don't, then replacing them with the most frequent values is a good option.
+
+
+
+Exceptions to the guidelines:
+
+
+
+If you/your organisation suspects that data is not missing at random and does not want to attribute the most common occurrence to the missing values,
+
+If you don't want to increase the feature space by adding missing indicators.
+
+Replace with a value at the tail of the distribution or an arbitrary value in these cases.
+
+
+
+Final note
+
+
+
+Imputation in data competitions or in business settings can be approached differently. In data competitions, a tiny increase in performance can be the difference between 1st and 2nd place. Therefore, you may want to try all the feature engineering methods and select the one that gives the machine learning algorithm the best performance. Different missing data imputation methods may help different models make better predictions.
+
+
+
+In businesses or other organisations, data scientists don't usually have the time to do lengthy data and model evaluation, and may therefore choose to streamline the feature engineering pipeline. In these cases, it is common practice to follow the guidelines above, taking into account the exceptions, and apply the same preprocessing to all features.
+
+
+
+This streamlined preprocessing may not lead to the "most" predictive features possible, but it facilitates the delivery of machine learning models in a shorter time. As a result, the company can begin reaping the benefits of machine learning sooner.
